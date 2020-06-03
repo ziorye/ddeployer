@@ -2,6 +2,10 @@
 
 All notable changes to `ddeployer` will be documented in this file
 
+## 1.0.7 - 2020-06-03
+
+- modify the default value of [php|git|composer]_bin_path
+
 ## 1.0.6 - 2020-06-03
 
 - add php path before composer command

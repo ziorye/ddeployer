@@ -42,7 +42,7 @@ class TestCase extends OrchestraTestCase
                 'git reset --hard origin/{$branch}',
             ],
             'custom' => [
-                'composer.json,composer.lock' => ['composer install --no-ansi --no-interaction --no-dev --no-suggest --no-progress --prefer-dist'],
+                'composer.json,composer.lock' => ['php composer install --no-ansi --no-interaction --no-dev --no-suggest --no-progress --prefer-dist'],
                 'database/migrations' => ['php artisan migrate --force'],
             ],
             'after' => [
@@ -50,8 +50,8 @@ class TestCase extends OrchestraTestCase
             ],
         ]);
         $app['config']->set('ddeployer.extra_check', false);
-        $app['config']->set('ddeployer.php_bin_path', 'php');
-        $app['config']->set('ddeployer.git_bin_path', 'git');
-        $app['config']->set('ddeployer.composer_bin_path', 'composer');
+        $app['config']->set('ddeployer.php_bin_path', '/usr/bin/php');
+        $app['config']->set('ddeployer.git_bin_path', '/usr/bin/git');
+        $app['config']->set('ddeployer.composer_bin_path', '/usr/bin/composer');
     }
 }

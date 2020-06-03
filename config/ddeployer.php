@@ -21,7 +21,7 @@ return [
          * If custom[key] needs to specify multiple files or paths, separate them with commas
          */
         'custom' => [
-            'composer.json,composer.lock' => ['composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist'],
+            'composer.json,composer.lock' => ['php composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist'],
             'database/migrations' => ['php artisan migrate --force'],
         ],
 
@@ -42,15 +42,15 @@ return [
     /**
      * If necessary, you can specify a specific php path
      */
-    'php_bin_path' => env('PHP_BIN_PATH', 'php'),
+    'php_bin_path' => env('PHP_BIN_PATH', '/usr/bin/php'),
 
     /**
      * If necessary, you can specify a specific git path
      */
-    'git_bin_path' => env('GIT_BIN_PATH', 'git'),
+    'git_bin_path' => env('GIT_BIN_PATH', '/usr/bin/git'),
 
     /**
      * If necessary, you can specify a specific composer path
      */
-    'composer_bin_path' => env('COMPOSER_BIN_PATH', 'composer'),
+    'composer_bin_path' => env('COMPOSER_BIN_PATH', '/usr/bin/composer'),
 ];
