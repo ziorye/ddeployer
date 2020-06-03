@@ -26,7 +26,7 @@ class DeployController extends BaseController
         if (app()->isLocal()) {
             return response()->json('application is in local environment. Ignoring.', 403);
         }
-        $localToken = config('deploy.secret_token');
+        $localToken = config('ddeployer.secret_token');
         if (empty($localToken)) {
             return response()->json('No secret_token found. Ignoring.', 403);
         }
@@ -58,7 +58,7 @@ class DeployController extends BaseController
             return response()->json('the ref in payload [' . $request->get('ref') . '] does not match [refs/heads/' . $branch . '], No need to do any thing', 403);
         }
 
-        if (config('deploy.extra_check')) {
+        if (config('ddeployer.extra_check')) {
             // ==============================
             // 3. extra check
             // Check if [the branch you are on] matches [the branch you specified in the request parameter]
@@ -77,12 +77,12 @@ class DeployController extends BaseController
         if (empty($commits)) {
             return response()->json('Empty commits.', 403);
         }
-        $commandLists = str_replace('{$branch}', $branch, config('deploy.commands.before'));
-        if (! empty(config('deploy.commands.custom'))) {
+        $commandLists = str_replace('{$branch}', $branch, config('ddeployer.commands.before'));
+        if (! empty(config('ddeployer.commands.custom'))) {
             foreach ($commits as $commit) {
                 foreach (['added', 'modified', 'removed'] as $type) {
                     foreach ($commit[$type] as $item) {
-                        foreach (config('deploy.commands.custom') as $files => $commands) {
+                        foreach (config('ddeployer.commands.custom') as $files => $commands) {
                             if (Str::contains($item, explode(',', $files))) {
                                 $commandLists = array_merge($commandLists, $commands);
                             }
@@ -91,7 +91,7 @@ class DeployController extends BaseController
                 }
             }
         }
-        $commandLists = array_unique(array_merge($commandLists, config('deploy.commands.after')));
+        $commandLists = array_unique(array_merge($commandLists, config('ddeployer.commands.after')));
 
         // ==============================
         // 5. generate deploy file

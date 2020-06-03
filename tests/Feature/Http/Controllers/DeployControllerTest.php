@@ -29,7 +29,7 @@ class DeployControllerTest extends TestCase
 
     public function testForbiddenOnNoSecretTokenFound()
     {
-        $this->app['config']->set('deploy.secret_token', '');
+        $this->app['config']->set('ddeployer.secret_token', '');
 
         $response = $this->post(route('ddeployer.deploy'), $this->preparedData(), [
             'X-Gitlab-Token' => 'random_token',

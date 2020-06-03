@@ -11,7 +11,25 @@ $ composer require ziorye/ddeployer
 
 ## Usage
 
-TODO
+1) Run the command below to publish the package config file `config/ddeployer.php`:
+
+```shell
+php artisan vendor:publish --provider="Ziorye\DDeployer\DDeployerServiceProvider"
+```
+
+2) Open your `.env` and add the following to it:
+
+```dotenv
+SECRET_TOKEN=[you can use `Str::random()` to generate a random alpha-numeric string]
+```
+
+
+3) Add new GitHub webhook manually by using the following values:
+   
+- Payload URL: `config('app.url') . '/ddeployer/deploy'`
+- Content Type: application/json
+- Secret: the `SECRET_TOKEN` value your just set to .env
+- Which events? Just the push event is enough.
 
 ## Contributing
 

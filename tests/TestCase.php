@@ -34,8 +34,8 @@ class TestCase extends OrchestraTestCase
     {
         parent::getEnvironmentSetUp($app);
 
-        $app['config']->set('deploy.secret_token', 'random_token');
-        $app['config']->set('deploy.commands', [
+        $app['config']->set('ddeployer.secret_token', 'random_token');
+        $app['config']->set('ddeployer.commands', [
             'before' => [
                 'php artisan down --message="Auto deployment in progress..."',
                 'git fetch origin {$branch}',
@@ -49,6 +49,6 @@ class TestCase extends OrchestraTestCase
                 'php artisan up',
             ],
         ]);
-        $app['config']->set('deploy.extra_check', false);
+        $app['config']->set('ddeployer.extra_check', false);
     }
 }

@@ -34,7 +34,7 @@ class DDeployerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/deploy.php' => config_path('ddeployer.php'),
+            __DIR__ . '/../config/ddeployer.php' => config_path('ddeployer.php'),
         ], 'config');
 
         Route::post('ddeployer/deploy', [DeployController::class, 'deploy'])->name('ddeployer.deploy');
