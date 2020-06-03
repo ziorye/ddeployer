@@ -112,7 +112,7 @@ class DeployController extends BaseController
         } else {
             $output = $this->runCmd($deployFilePath);
 
-            return $output;
+            return $output . PHP_EOL;
         }
     }
 
@@ -124,6 +124,6 @@ class DeployController extends BaseController
             throw new \RuntimeException($process->getErrorOutput());
         }
 
-        return trim($process->getOutput()) . PHP_EOL;
+        return trim($process->getOutput());
     }
 }
