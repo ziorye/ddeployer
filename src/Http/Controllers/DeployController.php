@@ -92,8 +92,15 @@ class DeployController extends BaseController
             }
         }
         $commandLists = array_unique(array_merge($commandLists, config('ddeployer.commands.after')));
+
         if (config('ddeployer.php_bin_path') !== 'php') {
             $commandLists = str_replace('php artisan ', config('ddeployer.php_bin_path') . ' artisan ', $commandLists);
+        }
+        if (config('ddeployer.git_bin_path') !== 'git') {
+            $commandLists = str_replace('git ', config('ddeployer.git_bin_path') . ' ', $commandLists);
+        }
+        if (config('ddeployer.composer_bin_path') !== 'composer') {
+            $commandLists = str_replace('composer ', config('ddeployer.php_bin_path') . ' ' . config('ddeployer.composer_bin_path') . ' ', $commandLists);
         }
 
         // ==============================

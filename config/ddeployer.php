@@ -43,4 +43,14 @@ return [
      * If necessary, you can specify a specific php path
      */
     'php_bin_path' => env('PHP_BIN_PATH', 'php'),
+
+    /**
+     * If necessary, you can specify a specific git path
+     */
+    'git_bin_path' => env('GIT_BIN_PATH', 'git'),
+
+    /**
+     * If necessary, you can specify a specific composer path
+     */
+    'composer_bin_path' => env('COMPOSER_BIN_PATH', 'composer'),
 ];

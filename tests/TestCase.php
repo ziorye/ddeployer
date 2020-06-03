@@ -51,5 +51,7 @@ class TestCase extends OrchestraTestCase
         ]);
         $app['config']->set('ddeployer.extra_check', false);
         $app['config']->set('ddeployer.php_bin_path', 'php');
+        $app['config']->set('ddeployer.git_bin_path', 'git');
+        $app['config']->set('ddeployer.composer_bin_path', 'composer');
     }
 }
