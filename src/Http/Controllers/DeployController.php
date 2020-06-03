@@ -99,9 +99,7 @@ class DeployController extends BaseController
         if (config('ddeployer.git_bin_path') !== 'git') {
             $commandLists = str_replace('git ', config('ddeployer.git_bin_path') . ' ', $commandLists);
         }
-        if (config('ddeployer.composer_bin_path') !== 'composer') {
-            $commandLists = str_replace('composer ', config('ddeployer.php_bin_path') . ' ' . config('ddeployer.composer_bin_path') . ' ', $commandLists);
-        }
+        $commandLists = str_replace('composer ', config('ddeployer.php_bin_path') . ' ' . config('ddeployer.composer_bin_path') . ' ', $commandLists);
 
         // ==============================
         // 5. generate deploy file

@@ -21,7 +21,7 @@ return [
          * If custom[key] needs to specify multiple files or paths, separate them with commas
          */
         'custom' => [
-            'composer.json,composer.lock' => ['composer install --no-ansi --no-interaction --no-dev --no-suggest --no-progress --prefer-dist'],
+            'composer.json,composer.lock' => ['composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist'],
             'database/migrations' => ['php artisan migrate --force'],
         ],
 
