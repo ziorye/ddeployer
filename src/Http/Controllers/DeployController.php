@@ -124,6 +124,6 @@ class DeployController extends BaseController
             throw new \RuntimeException($process->getErrorOutput());
         }
 
-        return trim($process->getOutput());
+        return trim($process->getOutput()) . PHP_EOL;
     }
 }

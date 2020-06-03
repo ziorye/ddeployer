@@ -2,6 +2,10 @@
 
 All notable changes to `ddeployer` will be documented in this file
 
+## 1.0.3 - 2020-06-03
+
+- optimize output
+
 ## 1.0.2 - 2020-06-03
 
 - make php path configurable
