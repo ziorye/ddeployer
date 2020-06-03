@@ -92,6 +92,9 @@ class DeployController extends BaseController
             }
         }
         $commandLists = array_unique(array_merge($commandLists, config('ddeployer.commands.after')));
+        if (config('ddeployer.php_bin_path') !== 'php') {
+            $commandLists = str_replace('php artisan ', config('ddeployer.php_bin_path') . ' artisan ', $commandLists);
+        }
 
         // ==============================
         // 5. generate deploy file

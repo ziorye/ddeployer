@@ -50,5 +50,6 @@ class TestCase extends OrchestraTestCase
             ],
         ]);
         $app['config']->set('ddeployer.extra_check', false);
+        $app['config']->set('ddeployer.php_bin_path', 'php');
     }
 }

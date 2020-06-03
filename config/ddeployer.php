@@ -38,4 +38,9 @@ return [
      * Check if [the branch you are on] matches [the branch you specified in the request parameter]
      */
     'extra_check' => false,
+
+    /**
+     * If necessary, you can specify a specific php path
+     */
+    'php_bin_path' => env('PHP_BIN_PATH', 'php'),
 ];
