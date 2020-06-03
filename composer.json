@@ -1,6 +1,6 @@
 {
     "name": "ziorye/ddeployer",
-    "description": "Deploy your Laravel applications via Github or Gitlab webhooks",
+    "description": "Deploy Laravel applications via Github or Gitlab webhooks",
     "license": "MIT",
     "authors": [
         {

@@ -1,6 +1,6 @@
 <h1 align="center"> ddeployer </h1>
 
-<p align="center"> Deploy laravel aprojects automatically with webhook.</p>
+<p align="center"> Deploy Laravel applications via Github or Gitlab webhooks</p>
 
 
 ## Installing
@@ -17,7 +17,7 @@ $ composer require ziorye/ddeployer
 php artisan vendor:publish --provider="Ziorye\DDeployer\DDeployerServiceProvider"
 ```
 
-2) Open your `.env` and add the following to it:
+2) Open your `.env` and add the `SECRET_TOKEN` to it:
 
 ```dotenv
 SECRET_TOKEN=[you can use `Str::random()` to generate a random alpha-numeric string]
