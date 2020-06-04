@@ -67,7 +67,6 @@ class DeployControllerTest extends TestCase
 
         $response->assertOk();
         $response->assertJsonCount(6);
-        Storage::disk('local')->assertExists('deploy.sh');
     }
 
     private function preparedData($branch = 'master')
