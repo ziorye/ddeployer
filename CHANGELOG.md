@@ -2,6 +2,10 @@
 
 All notable changes to `ddeployer` will be documented in this file
 
+## 1.0.8 - 2020-06-04
+
+- use return json response instead of throw exception
+
 ## 1.0.7 - 2020-06-03
 
 - modify the default value of [php|git|composer]_bin_path

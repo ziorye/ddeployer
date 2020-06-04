@@ -121,7 +121,7 @@ class DeployController extends BaseController
         $process = Process::fromShellCommandline($cmd, base_path());
         $process->run();
         if (! $process->isSuccessful()) {
-            throw new \RuntimeException($process->getErrorOutput());
+            return response()->json('[' . $cmd . '] 执行失败', 500);
         }
 
         return trim($process->getOutput());
