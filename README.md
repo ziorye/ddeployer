@@ -1,7 +1,6 @@
-<h1 align="center"> ddeployer </h1>
+# ddeployer
 
-<p align="center"> Deploy Laravel applications via Github or Gitlab webhooks</p>
-
+Deploy Laravel applications via Github or Gitlab webhooks
 
 ## Installing
 
@@ -23,13 +22,26 @@ php artisan vendor:publish --provider="Ziorye\DDeployer\DDeployerServiceProvider
 SECRET_TOKEN=[you can use `Str::random()` to generate a random alpha-numeric string]
 ```
 
-
 3) Add new GitHub webhook manually by using the following values:
-   
+
 - Payload URL: `config('app.url') . '/ddeployer/deploy'`
 - Content Type: application/json
 - Secret: the `SECRET_TOKEN` value your just set to .env
 - Which events? Just the push event is enough.
+
+## Upgrading
+
+1) Run the command below to upgrade the package
+
+```shell
+composer update ziorye/ddeployer
+```
+
+2) Overwrite the existing package config file `config/ddeployer.php`: 
+
+```shell
+php artisan vendor:publish --provider="Ziorye\DDeployer\DDeployerServiceProvider" --force
+```
 
 ## Contributing
 
