@@ -12,7 +12,7 @@ namespace Ziorye\DDeployer\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Symfony\Component\Process\Process;
 
@@ -97,22 +97,16 @@ class DeployController extends BaseController
         }
 
         // ==============================
-        // 5. generate deploy file
-        // ==============================
-        $content = implode(PHP_EOL, $commandLists);
-        Storage::disk('local')->put('deploy.sh', $content);
-        $deployFilePath = Storage::disk('local')->path('deploy.sh');
-        chmod($deployFilePath, 0755);
-
-        // ==============================
-        // 6. execute deploy file
+        // 5. execute commands
         // ==============================
         if (app()->runningInConsole() && app()->runningUnitTests()) {
             return $commandLists;
         } else {
-            $output = $this->runCmd($deployFilePath);
-
-            return $output . PHP_EOL;
+            $output = '';
+            foreach ($commandLists as $cmd) {
+                $output .= $this->runCmd($cmd) . PHP_EOL;
+            }
+            return $output;
         }
     }
 
@@ -121,7 +115,8 @@ class DeployController extends BaseController
         $process = Process::fromShellCommandline($cmd, base_path());
         $process->run();
         if (! $process->isSuccessful()) {
-            return response()->json('[' . $cmd . '] 执行失败', 500);
+            Log::error($process->getErrorOutput());
+            return '[' . $cmd . '] execute failed';
         }
 
         return trim($process->getOutput());

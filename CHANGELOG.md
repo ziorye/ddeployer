@@ -2,6 +2,10 @@
 
 All notable changes to `ddeployer` will be documented in this file
 
+## 1.0.9 - 2020-06-04
+
+- do not execute commands through the file
+
 ## 1.0.8 - 2020-06-04
 
 - use return json response instead of throw exception
