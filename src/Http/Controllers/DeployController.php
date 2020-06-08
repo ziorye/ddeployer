@@ -106,6 +106,7 @@ class DeployController extends BaseController
             foreach ($commandLists as $cmd) {
                 $output .= $this->runCmd($cmd) . PHP_EOL;
             }
+
             return $output;
         }
     }
@@ -116,6 +117,7 @@ class DeployController extends BaseController
         $process->run();
         if (! $process->isSuccessful()) {
             Log::error($process->getErrorOutput());
+
             return '[' . $cmd . '] execute failed';
         }
 

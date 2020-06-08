@@ -2,6 +2,11 @@
 
 All notable changes to `ddeployer` will be documented in this file
 
+## 1.0.10 - 2020-06-08
+
+- Apply fixes
+- Update README.md
+
 ## 1.0.9 - 2020-06-04
 
 - do not execute commands through the file
