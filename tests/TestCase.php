@@ -49,6 +49,7 @@ class TestCase extends OrchestraTestCase
                 'php artisan up',
             ],
         ]);
+        $app['config']->set('ddeployer.default_branch_to_be_pull', 'master');
         $app['config']->set('ddeployer.extra_check', false);
         $app['config']->set('ddeployer.php_bin_path', '/usr/bin/php');
         $app['config']->set('ddeployer.git_bin_path', '/usr/bin/git');

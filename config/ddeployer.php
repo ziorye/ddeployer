@@ -35,6 +35,11 @@ return [
     ],
 
     /**
+     * If the webhook url does not pass the branch parameter, pull the code from this branch for automatic deployment
+     */
+    'default_branch_to_be_pull' => 'master',
+
+    /**
      * Check if [the branch you are on] matches [the branch you specified in the request parameter]
      */
     'extra_check' => false,

@@ -53,7 +53,7 @@ class DeployController extends BaseController
         // ==============================
         // 2. check branch
         // ==============================
-        $branch = $request->get('branch', 'master');
+        $branch = $request->get('branch', config('ddeployer.default_branch_to_be_pull'));
         if ($request->get('ref') !== 'refs/heads/' . $branch) {
             return response()->json('the ref in payload [' . $request->get('ref') . '] does not match [refs/heads/' . $branch . '], No need to do any thing', 403);
         }
