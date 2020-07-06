@@ -11,7 +11,7 @@ return [
      */
     'commands' => [
         'before' => [
-            'php artisan down --message="Auto deployment in progress..."',
+            //'php artisan down --message="Auto deployment in progress..."',
             'git fetch origin {$branch}',
             'git reset --hard origin/{$branch}',
         ],
@@ -30,7 +30,7 @@ return [
              * 'php artisan config:cache',
              * 'php artisan route:cache',
             */
-            'php artisan up',
+            //'php artisan up',
         ],
     ],
 
