@@ -2,6 +2,10 @@
 
 All notable changes to `ddeployer` will be documented in this file
 
+## 1.0.11 - 2020-07-06
+
+- update configuration file
+
 ## 1.0.10 - 2020-06-08
 
 - Apply fixes
