@@ -41,7 +41,7 @@ class TestCase extends OrchestraTestCase
                 'git fetch origin {$branch}',
                 'git reset --hard origin/{$branch}',
             ],
-            'custom' => [
+            'condition' => [
                 'composer.json,composer.lock' => ['php composer install --no-ansi --no-interaction --no-dev --no-suggest --no-progress --prefer-dist'],
                 'database/migrations' => ['php artisan migrate --force'],
             ],

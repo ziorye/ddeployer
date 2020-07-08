@@ -78,11 +78,11 @@ class DeployController extends BaseController
             return response()->json('Empty commits.', 403);
         }
         $commandLists = str_replace('{$branch}', $branch, config('ddeployer.commands.before'));
-        if (! empty(config('ddeployer.commands.custom'))) {
+        if (! empty(config('ddeployer.commands.condition'))) {
             foreach ($commits as $commit) {
                 foreach (['added', 'modified', 'removed'] as $type) {
                     foreach ($commit[$type] as $item) {
-                        foreach (config('ddeployer.commands.custom') as $files => $commands) {
+                        foreach (config('ddeployer.commands.condition') as $files => $commands) {
                             if (Str::contains($item, explode(',', $files))) {
                                 $commandLists = array_merge($commandLists, $commands);
                             }

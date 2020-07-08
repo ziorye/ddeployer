@@ -17,10 +17,10 @@ return [
         ],
 
         /**
-         * If the changed code contains the file or path in the custom[key], the commands in the custom[value] will be executed
-         * If custom[key] needs to specify multiple files or paths, separate them with commas
+         * If the changed code contains the file or path in the condition[key], the commands in the condition[value] will be executed
+         * If condition[key] needs to specify multiple files or paths, separate them with commas
          */
-        'custom' => [
+        'condition' => [
             'composer.json,composer.lock' => ['php composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist'],
             'database/migrations' => ['php artisan migrate --force'],
         ],
