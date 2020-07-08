@@ -22,7 +22,7 @@ return [
          */
         'condition' => [
             'composer.json,composer.lock' => ['php composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist'],
-            'database/migrations' => ['php artisan migrate --force'],
+            'database/migrations' => ['php artisan migrate'], // php artisan migrate --force
         ],
 
         'after' => [
