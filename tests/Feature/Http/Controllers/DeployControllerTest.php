@@ -21,6 +21,7 @@ class DeployControllerTest extends TestCase
 
         $response = $this->post(route('ddeployer.deploy'), $this->preparedData(), [
             'X-Gitlab-Token' => 'random_token',
+            'X-Gitlab-Event' => 'Push Hook',
         ]);
 
         $response->assertForbidden()
@@ -33,6 +34,7 @@ class DeployControllerTest extends TestCase
 
         $response = $this->post(route('ddeployer.deploy'), $this->preparedData(), [
             'X-Gitlab-Token' => 'random_token',
+            'X-Gitlab-Event' => 'Push Hook',
         ]);
 
         $response->assertForbidden()
@@ -41,7 +43,9 @@ class DeployControllerTest extends TestCase
 
     public function testForbiddenOnMissingXHeader()
     {
-        $response = $this->post(route('ddeployer.deploy'), $this->preparedData());
+        $response = $this->post(route('ddeployer.deploy'), $this->preparedData(), [
+            'X-Gitlab-Event' => 'Push Hook',
+        ]);
 
         $response->assertForbidden()
             ->assertSeeText('Missing X header.');
@@ -51,6 +55,7 @@ class DeployControllerTest extends TestCase
     {
         $response = $this->post(route('ddeployer.deploy') . '?branch=no-master', $this->preparedData(), [
             'X-Gitlab-Token' => 'random_token',
+            'X-Gitlab-Event' => 'Push Hook',
         ]);
 
         $response->assertForbidden()
@@ -63,6 +68,7 @@ class DeployControllerTest extends TestCase
 
         $response = $this->postJson(route('ddeployer.deploy'), $this->preparedData(), [
             'X-Gitlab-Token' => 'random_token',
+            'X-Gitlab-Event' => 'Push Hook',
         ]);
 
         $response->assertOk();
