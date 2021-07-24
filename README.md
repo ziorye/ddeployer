@@ -5,7 +5,7 @@ Deploy Laravel applications via Github or Gitlab webhooks
 ## Installing
 
 ```shell
-$ composer require ziorye/ddeployer
+composer require ziorye/ddeployer
 ```
 
 ## Usage
