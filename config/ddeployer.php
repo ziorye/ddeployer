@@ -21,7 +21,7 @@ return [
          * If condition[key] needs to specify multiple files or paths, separate them with commas
          */
         'condition' => [
-            'composer.json,composer.lock' => ['php composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist'],
+            'composer.json,composer.lock' => ['php composer install --optimize-autoloader --no-dev'],
             'database/migrations' => ['php artisan migrate'], // php artisan migrate --force
         ],
 
@@ -29,6 +29,7 @@ return [
             /*
              * 'php artisan config:cache',
              * 'php artisan route:cache',
+             * 'php artisan view:cache'
             */
             //'php artisan up',
         ],
@@ -37,7 +38,7 @@ return [
     /**
      * If the webhook url does not pass the branch parameter, pull the code from this branch for automatic deployment
      */
-    'default_branch_to_be_pull' => 'master',
+    'default_branch_to_be_pull' => 'main',
 
     /**
      * Check if [the branch you are on] matches [the branch you specified in the request parameter]
