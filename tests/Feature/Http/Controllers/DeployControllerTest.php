@@ -75,6 +75,11 @@ class DeployControllerTest extends TestCase
         $response->assertJsonCount(6);
     }
 
+    public function testSetTimeLimitConfiguration()
+    {
+        $this->assertIsInt($this->app['config']->get('ddeployer.set_time_limit'));
+    }
+
     private function preparedData($branch = 'master')
     {
         return [
