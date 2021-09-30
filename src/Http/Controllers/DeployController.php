@@ -20,6 +20,8 @@ class DeployController extends BaseController
 {
     public function deploy(Request $request)
     {
+        set_time_limit(config('ddeployer.set_time_limit'));
+
         // ==============================
         // 1. pre check
         // ==============================

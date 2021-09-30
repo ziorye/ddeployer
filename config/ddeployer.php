@@ -45,6 +45,11 @@ return [
     'extra_check' => false,
 
     /**
+     * The maximum execution time, in seconds. If set to zero, no time limit is imposed.
+     */
+    'set_time_limit' => 0,
+
+    /**
      * If necessary, you can specify a specific php path
      */
     'php_bin_path' => env('PHP_BIN_PATH', '/usr/bin/php'),
