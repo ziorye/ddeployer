@@ -5,7 +5,14 @@ Deploy Laravel applications via Github or Gitlab webhooks
 ## Installing
 
 ```shell
-composer require ziorye/ddeployer
+For Laravel 9.x
+composer require ziorye/ddeployer:^3.0
+
+For Laravel 8.x
+composer require ziorye/ddeployer:^2.0
+
+For Laravel 7.x || 6.x || 5.8.x
+composer require ziorye/ddeployer:^1.0
 ```
 
 ## Usage
